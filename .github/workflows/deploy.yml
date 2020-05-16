@@ -25,7 +25,7 @@ jobs:
     - name: Run SSH command
       uses: garygrossgarten/github-action-ssh@v0.5.0
       with:
-        command: ls -a
+        command: bash ~/Documents/Git/website/Scripts/update.bash 
         host: ${{ secrets.HOST }}
         username: jbmelberg
         password: ${{ secrets.CenturionLogin}}
