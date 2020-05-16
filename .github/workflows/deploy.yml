@@ -27,8 +27,8 @@ jobs:
       with:
         command: ls -a
         host: ${{ secrets.HOST }}
-        username: garygrossgarten
-        password: ${{ secrets.PASSWORD}}
+        username: jbmelberg
+        password: ${{ secrets.CenturionLogin}}
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
