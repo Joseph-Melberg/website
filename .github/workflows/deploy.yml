@@ -27,8 +27,8 @@ jobs:
       with:
         command: bash ~/Documents/Git/website/Scripts/update.bash 
         host: ${{ secrets.HOST }}
-        username: jbmelberg
-        password: ${{ secrets.CenturionLogin}}
+        username: ${{secrets.CENTURION_USER}}
+        password: ${{secrets.CENTURION_PASSWORD}}
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
