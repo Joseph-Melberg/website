@@ -35,9 +35,10 @@ jobs:
 
           # Log out from the Docker registry at the end of a job
               # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
         
       - name: Run a multi-line script
+      - uses: actions/checkout@v2
+      
         run: |
           cd $GITHUB_WORKSPACE
           docker build -t docker.centurionx.net/website .
