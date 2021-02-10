@@ -27,10 +27,8 @@ jobs:
           # Server address of Docker registry. If not set then will default to Docker Hub
           registry: docker.centurionx.net
           # Username used to log against the Docker registry
-          username: ${{CENTURION_USER}}
-
-          # Password or personal access token used to log against the Docker registry
-          password:  ${{CENTURION_PASSWORD}}
+          username: ${{secrets.CENTURION_USER}}
+          password: ${{secrets.CENTURION_PASSWORD}}
 
           # Log out from the Docker registry at the end of a job
               # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
