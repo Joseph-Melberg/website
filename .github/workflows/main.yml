@@ -20,10 +20,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
       - name: Docker Login
-  # You may pin to the exact commit or the version.
-  # uses: docker/login-action@f3364599c6aa293cdc2b8391b1b56d0c30e45c8a
       - uses: docker/login-action@v1.8.0
         with:
           # Server address of Docker registry. If not set then will default to Docker Hub
@@ -36,6 +33,9 @@ jobs:
 
           # Log out from the Docker registry at the end of a job
               # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Pull repo
+      - uses: actions/checkout@v2
+        
       - name: Build Docker Image
         run: |
           cd $GITHUB_WORKSPACE
