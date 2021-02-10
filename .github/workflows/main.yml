@@ -36,5 +36,5 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           docker build -t docker.centurionx.net/website .
-          docker push docker.centurionx.net
+          docker push docker.centurionx.net/website
           
