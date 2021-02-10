@@ -36,8 +36,9 @@ jobs:
           # Log out from the Docker registry at the end of a job
               # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         
-      - name: Run a multi-line script
+      - name: Pull repo
       - uses: actions/checkout@v2
+      - name: Build Docker Image
       
         run: |
           cd $GITHUB_WORKSPACE
