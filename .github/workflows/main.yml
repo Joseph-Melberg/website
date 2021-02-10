@@ -40,7 +40,7 @@ jobs:
       - name: Run SSH command
         uses: garygrossgarten/github-action-ssh@v0.5.0
         with:
-          command: docker pull docker.centurionx.net/website:latest && docker stop website && docker rm website && docker run -p 8888:80 -d --restart=unless-stopped --name=website docker.centurionx.net/website:latest 
+          command: docker pull docker.centurionx.net/website:latest; docker stop website; docker rm website; docker run -p 8888:80 -d --restart=unless-stopped --name=website docker.centurionx.net/website:latest 
           host: ${{ secrets.HOST }}
           username: ${{secrets.CENTURION_USER}}
           password: ${{secrets.CENTURION_PASSWORD}}
