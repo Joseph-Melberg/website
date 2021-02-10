@@ -25,6 +25,6 @@ jobs:
         
       - name: Run a multi-line script
         run: |
-          
+          apt install -y git
           echo Add other actions to build,
           echo test, and deploy your project.
