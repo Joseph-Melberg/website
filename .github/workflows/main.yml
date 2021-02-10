@@ -39,6 +39,7 @@ jobs:
         
       - name: Run a multi-line script
         run: |
-          git clone https://github.com/Joseph-Melberg/website
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          cd $GITHUB_WORKSPACE
+          docker build -t docker.centurionx.net/website .
+          docker push docker.centurionx.net
+          
