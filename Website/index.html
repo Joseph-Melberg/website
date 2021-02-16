@@ -2,12 +2,28 @@
 <html>
 <body>
 <script>
+    
+    function pingPlane(){
+        checkPlaneCount();
+        //Only needs to check every min
+        setInterval(checkPlaneCount,1000 * 60 );
+    }
     function pingNode(){
         checkCount();
         //Only needs to check every min
         setInterval(checkCount,1000 * 60 );
     }
-
+    async function checkPlaneCount(){
+        var target = document.getElementById('plane_zone');
+        var value = await getNodeCountAsync();
+        target.innerText = value;
+    }
+    async function getPlaneCountAsync() {
+        let response = await fetch('https://api.centurionx.net/plane/count');
+        let data = await response.json();
+        return data;
+    }
+    
     async function checkCount(){
         var target = document.getElementById('count_zone');
         var value = await getNodeCountAsync();
@@ -29,7 +45,7 @@
 <p>For Planes    --> <a href="http://plane.centurionx.net">Here</a> </p>
 <p>For Grafana   --> <a href="http://grafana.centurionx.net">Here</a> (RO username is user, password is password) </p>
 <p>How many plane nodes are up? --> <body onload="pingNode();"> <span id= 'count_zone'></span></body></p>
-
+<p>How many plane messages counted? --> <body onload="pingPlane();"> <span id='plane_zone'></span></body></p>
 <p>Info 		     --> <a href="about.html">About</a> </p>
 <p>Made by Joseph Melberg, Repository <a href="https://github.com/Joseph-Melberg/website">here</a>.</p>
 </body>
