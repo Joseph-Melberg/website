@@ -15,7 +15,7 @@
     }
     async function checkPlaneCount(){
         var target = document.getElementById('plane_zone');
-        var value = await getNodeCountAsync();
+        var value = await getPlaneCountAsync();
         target.innerText = value;
     }
     async function getPlaneCountAsync() {
