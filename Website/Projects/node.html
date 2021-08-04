@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function UpkeepStart()
+        {
+            FormNodeTable();
+            //Only needs to check every min
+            setInterval(FormNodeTable,1000 * 60 );
+        }
+        async function FormNodeTable()
+        {
+            var payload = await GetNodesAsync();
+            var target = document.getElementById("nodeTable");
+            target.innerText = payload[0].name;
+            let headers = Object.keys(payload[0]);
+
+            generateTableHead(target,headers);
+            generateTable(target,payload);
+        }
+        function Info(data)
+        {
+            for(let head of Object.keys(data[0]))
+            {
+                console.log(head);
+            }
+        }
+        async function GetNodesAsync()
+        {
+            let response = await fetch('https://api.centurionx.net/node/list');
+            let data = await response.json();
+            return data;
+        }
+
+        function generateTableHead(table, data) 
+        {
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text = document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+
+        function generateTable(table, data) {
+          for (let element of data) {
+            let row = table.insertRow();
+            for (key in element) {
+                let cell = row.insertCell();
+                let text = document.createTextNode(element[key]);
+                cell.appendChild(text);
+                }
+            }
+        }
+    </script>
+<body onload="UpkeepStart()">
+<h1>Node Status</h1>
+<span >Below is the status of my node network</span>
+    <table id = "nodeTable"></table>
+</body>
+</html> 
