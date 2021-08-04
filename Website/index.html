@@ -5,6 +5,7 @@
     function upkeepStart(){
         pingNode();
     }
+
     function pingNode(){
         checkCount();
         //Only needs to check every min
@@ -29,8 +30,10 @@
 
 <p>Below are the current documented services that this website has to offer.</p>
 
-<p>For Planes    --> <a href="http://plane.centurionx.net">Here</a> This is currently under construction. </p>
-<p>For Grafana   --> <a href="http://grafana.centurionx.net">Here</a> (RO username is user, password is password) </p>
+<p>For Node Status      --> <a href="/Projects/node.html">Here</a></p>
+<p>For Planes           --> <a href="http://plane.centurionx.net">Here</a> </p>
+<p>For Grafana          --> <a href="http://grafana.centurionx.net">Here</a> (RO username is user, password is password) </p>
+
 <p>How many plane nodes are up? --> <body onload="upkeepStart();"> <span id= 'count_zone'></span></body></p>
 <p>Info 		     --> <a href="about.html">About</a> </p>
 <p>Made by Joseph Melberg, Repository <a href="https://github.com/Joseph-Melberg/website">here</a>.</p>
