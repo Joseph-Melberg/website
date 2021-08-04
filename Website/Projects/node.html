@@ -11,6 +11,7 @@
         {
             var payload = await GetNodesAsync();
             var target = document.getElementById("nodeTable");
+            target.innerText = "";
             let headers = Object.keys(payload[0]);
 
             generateTableHead(target,headers);
