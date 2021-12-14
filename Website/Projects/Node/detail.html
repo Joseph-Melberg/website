@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+    function setValue()
+    {
+        const queryString = window.location.search;
+console.log(queryString);
+ 
+        const urlParams = new URLSearchParams(queryString);
+        var target = document.getElementById("target");
+        console.log("Howdy");
+        target.innerText = urlParams.get('value');
+    }
+</script>
+    <p id = "target"><body onload="setValue();"></body></p>
+    
+</body>
+
+
+</html>
