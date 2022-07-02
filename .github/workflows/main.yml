@@ -51,7 +51,7 @@ jobs:
       - name: Run SSH command
         uses: garygrossgarten/github-action-ssh@v0.5.0
         with:
-          command: docker pull ${{secrets.REPOSITORY}}/website:latest; docker stop website; docker rm website; docker run -p 8888:80 -d --restart=unless-stopped --name=website ${{secrets.REPOSITORY}}/website:latest 
+          command: docker pull ${{secrets.REPOSITORY}}/website:latest >> what; docker stop website; docker rm website; docker run -p 8888:80 -d --restart=unless-stopped --name=website ${{secrets.REPOSITORY}}/website:latest 
           host: ${{ secrets.HOST }}
           username: ${{secrets.CENTURION_USER}}
           password: ${{secrets.CENTURION_PASSWORD}}
